@@ -1,0 +1,12 @@
+python_pipeline/venv/
+python_pipeline/__pycache__/
+
+data/raw_dicom/*
+data/output_models/*
+
+!data/raw_dicom/.keep
+!data/output_models/.keep
+
+godot_vr_app/.godot/
+godot_vr_app/.import/
+godot_vr_app/*.translation
