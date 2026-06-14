@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://lwjpy1mxgdla"]
+[gd_scene load_steps=23 format=3 uid="uid://lwjpy1mxgdla"]
 
 [ext_resource type="Script" uid="uid://dc1lu38185dod" path="res://node_3d.gd" id="1_61lph"]
 [ext_resource type="PackedScene" uid="uid://b8sqplh0apc1y" path="res://assets/models/rigged_hand.glb" id="2_noarx"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dcmakcalqcv6a" path="res://teleport.gd" id="3_a0tk4"]
 [ext_resource type="PackedScene" uid="uid://buqa2sxg7pvoi" path="res://assets/models/futuristic_laser_gun.glb" id="5_jka67"]
 [ext_resource type="PackedScene" uid="uid://badmtg5gm1ecu" path="res://assets/models/robotic_hand.glb" id="5_jsk3o"]
+[ext_resource type="PackedScene" uid="uid://bmyxyt3qi5sto" path="res://patient_001.tscn" id="7_wc5p8"]
 
 [sub_resource type="Gradient" id="Gradient_wc5p8"]
 
@@ -175,5 +176,12 @@ top_level = true
 visible = false
 material_override = SubResource("StandardMaterial3D_wc5p8")
 mesh = SubResource("SphereMesh_wc5p8")
+
+[node name="MedicalWorkspace" type="Node3D" parent="."]
+
+[node name="PatientAnchor" type="Node3D" parent="MedicalWorkspace"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 3)
+
+[node name="Patient_001" parent="MedicalWorkspace/PatientAnchor" instance=ExtResource("7_wc5p8")]
 
 [connection signal="button_released" from="Player/XROrigin3D/RightController" to="Player/XROrigin3D/RightController" method="_on_right_controller_button_released"]
