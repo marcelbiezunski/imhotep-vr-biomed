@@ -172,6 +172,7 @@ transform = Transform3D(-0.19696155, 0.034729637, -1.7484556e-08, 0.034729637, 0
 
 [node name="TeleportRay" type="RayCast3D" parent="Player/XROrigin3D/RightController"]
 target_position = Vector3(0, 0, -10)
+collide_with_areas = true
 
 [node name="TeleportMarker" type="MeshInstance3D" parent="Player/XROrigin3D/RightController"]
 top_level = true
