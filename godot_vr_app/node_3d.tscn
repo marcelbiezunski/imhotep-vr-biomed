@@ -193,7 +193,36 @@ script = ExtResource("8_4arys")
 patient_path = NodePath("../../PatientAnchor/Patient_001")
 
 [node name="LiverButton" parent="MedicalWorkspace/ToolPaletteAnchor/ToolPalette" instance=ExtResource("9_6iypd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 label_text = "Liver On/Off"
+
+[node name="MassButton" parent="MedicalWorkspace/ToolPaletteAnchor/ToolPalette" instance=ExtResource("9_6iypd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+label_text = "Mass On/Off"
+
+[node name="PortalVeinButton" parent="MedicalWorkspace/ToolPaletteAnchor/ToolPalette" instance=ExtResource("9_6iypd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+label_text = "PortalVeinButton"
+
+[node name="AortaButton" parent="MedicalWorkspace/ToolPaletteAnchor/ToolPalette" instance=ExtResource("9_6iypd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+label_text = "AortaButton"
+
+[node name="OpacityButton" parent="MedicalWorkspace/ToolPaletteAnchor/ToolPalette" instance=ExtResource("9_6iypd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+label_text = "OpacityButton"
+
+[node name="RotateLeftButton" parent="MedicalWorkspace/ToolPaletteAnchor/ToolPalette" instance=ExtResource("9_6iypd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+label_text = "RotateLeft"
+
+[node name="RotateRightButton" parent="MedicalWorkspace/ToolPaletteAnchor/ToolPalette" instance=ExtResource("9_6iypd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+label_text = "RotateRight"
+
+[node name="ResetButton" parent="MedicalWorkspace/ToolPaletteAnchor/ToolPalette" instance=ExtResource("9_6iypd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+label_text = "RotateReset"
 
 [node name="SliceScreenAnchor" type="Node3D" parent="MedicalWorkspace"]
 
