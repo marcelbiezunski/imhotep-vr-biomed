@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bmyxyt3qi5sto"]
+[gd_scene load_steps=6 format=3 uid="uid://bmyxyt3qi5sto"]
 
+[ext_resource type="Script" uid="uid://c8umtmoup1vfa" path="res://patient_001.gd" id="1_c0u53"]
 [ext_resource type="PackedScene" uid="uid://dnkk751o3r24i" path="res://assets/patient1/abdominal_aorta_blended.glb" id="1_cqi8k"]
 [ext_resource type="PackedScene" uid="uid://c40fq7cvwo4md" path="res://assets/patient1/liver_blended.glb" id="2_c0u53"]
 [ext_resource type="PackedScene" uid="uid://8b0t36acbknq" path="res://assets/patient1/mass_blended.glb" id="3_owdc0"]
 [ext_resource type="PackedScene" uid="uid://rx55548wjl3r" path="res://assets/patient1/portal_vein_blended.glb" id="4_54maj"]
 
 [node name="Patient_001" type="Node3D"]
+script = ExtResource("1_c0u53")
 
 [node name="PatientPivot" type="Node3D" parent="."]
 
