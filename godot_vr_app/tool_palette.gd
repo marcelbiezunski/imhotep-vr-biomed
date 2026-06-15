@@ -13,6 +13,8 @@ extends Node3D
 @onready var opacity_button = $OpacityButton
 @onready var rotate_left_button = $RotateLeftButton
 @onready var rotate_right_button = $RotateRightButton
+@onready var rotate_up_button = $RotateUpButton
+@onready var rotate_down_button = $RotateDownButton
 @onready var reset_button = $ResetButton
 
 @onready var next_slice_button = $NextSliceButton
@@ -28,6 +30,8 @@ func _ready() -> void:
     opacity_button.pressed.connect(_on_opacity_button_pressed)
     rotate_left_button.pressed.connect(_on_rotate_left_button_pressed)
     rotate_right_button.pressed.connect(_on_rotate_right_button_pressed)
+    rotate_up_button.pressed.connect(_on_rotate_up_button_pressed)
+    rotate_down_button.pressed.connect(_on_rotate_down_button_pressed)
     reset_button.pressed.connect(_on_reset_button_pressed)
     next_slice_button.pressed.connect(_on_next_slice_button_pressed)
     previous_slice_button.pressed.connect(_on_previous_slice_button_pressed)
@@ -60,6 +64,14 @@ func _on_rotate_left_button_pressed() -> void:
 
 func _on_rotate_right_button_pressed() -> void:
     patient.rotate_right()
+    
+    
+func _on_rotate_up_button_pressed() -> void:
+    patient.rotate_up()
+
+
+func _on_rotate_down_button_pressed() -> void:
+    patient.rotate_down()
 
 
 func _on_reset_button_pressed() -> void:
@@ -95,5 +107,9 @@ func _unhandled_input(event: InputEvent) -> void:
                 rotate_left_button.press()
             KEY_X:
                 rotate_right_button.press()
+            KEY_U:
+                rotate_up_button.press()
+            KEY_J:
+                rotate_down_button.press()
             KEY_T:
                 reset_button.press()

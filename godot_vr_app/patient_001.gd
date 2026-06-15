@@ -36,6 +36,14 @@ func rotate_right() -> void:
     patient_pivot.rotate_y(deg_to_rad(-15.0))
 
 
+func rotate_up() -> void:
+    patient_pivot.rotate_x(deg_to_rad(15.0))
+
+
+func rotate_down() -> void:
+    patient_pivot.rotate_x(deg_to_rad(-15.0))
+
+
 func reset_view() -> void:
     patient_pivot.rotation = Vector3.ZERO
 
@@ -90,3 +98,7 @@ func _unhandled_input(event: InputEvent) -> void:
                 rotate_right()
             KEY_R:
                 reset_view()
+            KEY_W:
+                rotate_up()
+            KEY_S:
+                rotate_down()
