@@ -1,8 +1,10 @@
 extends Node3D
 
 @export var patient_path: NodePath
+@export var slice_screen_path: NodePath
 
 @onready var patient: Node = get_node(patient_path)
+@onready var slice_screen: Node = get_node(slice_screen_path)
 
 @onready var liver_button = $LiverButton
 @onready var mass_button = $MassButton
@@ -12,6 +14,10 @@ extends Node3D
 @onready var rotate_left_button = $RotateLeftButton
 @onready var rotate_right_button = $RotateRightButton
 @onready var reset_button = $ResetButton
+
+@onready var next_slice_button = $NextSliceButton
+@onready var previous_slice_button = $PreviousSliceButton
+@onready var overlay_button = $OverlayButton
 
 
 func _ready() -> void:
@@ -23,6 +29,9 @@ func _ready() -> void:
     rotate_left_button.pressed.connect(_on_rotate_left_button_pressed)
     rotate_right_button.pressed.connect(_on_rotate_right_button_pressed)
     reset_button.pressed.connect(_on_reset_button_pressed)
+    next_slice_button.pressed.connect(_on_next_slice_button_pressed)
+    previous_slice_button.pressed.connect(_on_previous_slice_button_pressed)
+    overlay_button.pressed.connect(_on_overlay_button_pressed)
 
 
 func _on_liver_button_pressed() -> void:
@@ -55,6 +64,18 @@ func _on_rotate_right_button_pressed() -> void:
 
 func _on_reset_button_pressed() -> void:
     patient.reset_view()
+    
+    
+func _on_next_slice_button_pressed() -> void:
+    slice_screen.next_view()
+
+
+func _on_previous_slice_button_pressed() -> void:
+    slice_screen.previous_view()
+
+
+func _on_overlay_button_pressed() -> void:
+    slice_screen.toggle_overlay()
 
 
 func _unhandled_input(event: InputEvent) -> void:
