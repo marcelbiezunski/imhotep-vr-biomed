@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://lwjpy1mxgdla"]
+[gd_scene load_steps=34 format=3 uid="uid://lwjpy1mxgdla"]
 
 [ext_resource type="Script" uid="uid://dc1lu38185dod" path="res://node_3d.gd" id="1_61lph"]
 [ext_resource type="PackedScene" uid="uid://b8sqplh0apc1y" path="res://assets/models/rigged_hand.glb" id="2_noarx"]
@@ -10,6 +10,12 @@
 [ext_resource type="Script" uid="uid://br0uv14rk5h6t" path="res://tool_palette.gd" id="8_4arys"]
 [ext_resource type="PackedScene" uid="uid://c8ne202fstl5c" path="res://button_3d.tscn" id="9_6iypd"]
 [ext_resource type="Texture2D" uid="uid://ba78a0jdtukh7" path="res://assets/patient1/axial_mass.png" id="10_6iypd"]
+[ext_resource type="Script" uid="uid://bc8h07hlpo545" path="res://slice_screen_anchor.gd" id="10_tereu"]
+[ext_resource type="Texture2D" uid="uid://2ebq11i1xxcb" path="res://assets/patient1/axial_mass_nocolor.png" id="11_tcnuu"]
+[ext_resource type="Texture2D" uid="uid://co56fbt5n4ice" path="res://assets/patient1/coronal_mass_nocolor.png" id="13_tuemg"]
+[ext_resource type="Texture2D" uid="uid://b15oeqg6ne5gn" path="res://assets/patient1/coronal_mass.png" id="14_i0g27"]
+[ext_resource type="Texture2D" uid="uid://vawyx2uqtfnw" path="res://assets/patient1/sagittal_mass_nocolor.png" id="15_ealrb"]
+[ext_resource type="Texture2D" uid="uid://bd6n2374at16u" path="res://assets/patient1/sagittal_mass.png" id="16_jsnrv"]
 
 [sub_resource type="Gradient" id="Gradient_wc5p8"]
 
@@ -235,6 +241,15 @@ label_text = "RotateReset"
 
 [node name="SliceScreenAnchor" type="Node3D" parent="MedicalWorkspace"]
 transform = Transform3D(-0.50000006, -0.8660254, 3.7855173e-08, 0, -4.371139e-08, -1, 0.8660254, -0.50000006, 2.1855696e-08, 5, 2, 4)
+script = ExtResource("10_tereu")
+slice_screen_path = NodePath("SliceScreen")
+title_label_path = NodePath("SliceTitle")
+axial_plain = ExtResource("11_tcnuu")
+axial_overlay = ExtResource("10_6iypd")
+coronal_plain = ExtResource("13_tuemg")
+coronal_overlay = ExtResource("14_i0g27")
+sagittal_plain = ExtResource("15_ealrb")
+sagittal_overlay = ExtResource("16_jsnrv")
 
 [node name="SliceScreen" type="MeshInstance3D" parent="MedicalWorkspace/SliceScreenAnchor"]
 material_override = SubResource("StandardMaterial3D_tereu")
