@@ -207,6 +207,7 @@ shape = SubResource("CapsuleShape3D_jka67")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="Player/XROrigin3D"]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
+current = true
 
 [node name="LeftController" type="XRController3D" parent="Player/XROrigin3D"]
 tracker = &"left_hand"
@@ -350,6 +351,5 @@ text = "Educational prototype. Not for clinical use."
 
 [node name="DebugCamera" type="Camera3D" parent="."]
 transform = Transform3D(-0.7535634, 0.410123, -0.5137522, 0, 0.7815205, 0.6238796, 0.6573752, 0.47013286, -0.58892524, 1, 2, 2)
-current = true
 
 [connection signal="button_released" from="Player/XROrigin3D/RightController" to="Player/XROrigin3D/RightController" method="_on_right_controller_button_released"]
