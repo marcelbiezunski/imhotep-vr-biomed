@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://lwjpy1mxgdla"]
+[gd_scene load_steps=35 format=3 uid="uid://lwjpy1mxgdla"]
 
 [ext_resource type="Script" uid="uid://dc1lu38185dod" path="res://node_3d.gd" id="1_61lph"]
 [ext_resource type="PackedScene" uid="uid://b8sqplh0apc1y" path="res://assets/models/rigged_hand.glb" id="2_noarx"]
@@ -71,6 +71,9 @@ albedo_texture = ExtResource("10_6iypd")
 [sub_resource type="PlaneMesh" id="PlaneMesh_cdqbm"]
 size = Vector2(3, 2)
 
+[sub_resource type="BoxMesh" id="BoxMesh_tcnuu"]
+size = Vector3(2, 2, 0.03)
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_61lph")
 
@@ -102,7 +105,7 @@ mesh = SubResource("CylinderMesh_noarx")
 shape = SubResource("CylinderShape3D_a0tk4")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -5)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level/StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
@@ -271,6 +274,34 @@ mesh = SubResource("PlaneMesh_cdqbm")
 [node name="SliceTitle" type="Label3D" parent="MedicalWorkspace/SliceScreenAnchor"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 1.2)
 text = "Axial CT Slice"
+
+[node name="InfoPanelAnchor" type="Node3D" parent="MedicalWorkspace"]
+transform = Transform3D(-0.81915206, 0, 0.57357645, 0, 1, 0, -0.57357645, 0, -0.81915206, -4, 2, 4)
+
+[node name="InfoPanel" type="Node3D" parent="MedicalWorkspace/InfoPanelAnchor"]
+
+[node name="PanelBlack" type="MeshInstance3D" parent="MedicalWorkspace/InfoPanelAnchor/InfoPanel"]
+mesh = SubResource("BoxMesh_tcnuu")
+
+[node name="TitleLabel" type="Label3D" parent="MedicalWorkspace/InfoPanelAnchor/InfoPanel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0.04)
+text = "Patient 001"
+
+[node name="CaseLabel" type="Label3D" parent="MedicalWorkspace/InfoPanelAnchor/InfoPanel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.04)
+pixel_size = 0.004
+text = "CT liver case
+Structures: liver, mass, 
+portal vein, abdominal aorta
+
+Visualization: 
+segmented surface meshes 
+CT slices"
+
+[node name="DisclaimerLabel" type="Label3D" parent="MedicalWorkspace/InfoPanelAnchor/InfoPanel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8, 0.04)
+pixel_size = 0.003
+text = "Educational prototype. Not for clinical use."
 
 [node name="DebugCamera" type="Camera3D" parent="."]
 transform = Transform3D(-0.7535634, 0.410123, -0.5137522, 0, 0.7815205, 0.6238796, 0.6573752, 0.47013286, -0.58892524, 1, 2, 2)
