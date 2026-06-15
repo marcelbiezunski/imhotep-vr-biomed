@@ -92,7 +92,7 @@ albedo_color = Color(0.039215688, 0.039215688, 0.039215688, 1)
 size = Vector3(2, 2, 0.03)
 
 [sub_resource type="BoxMesh" id="BoxMesh_imku0"]
-size = Vector3(1.2, 0.55, 0.03)
+size = Vector3(1.25, 0.6, 0.02)
 
 [sub_resource type="BoxMesh" id="BoxMesh_wlxy5"]
 size = Vector3(0.85, 0.5, 0.02)
@@ -128,6 +128,7 @@ text = "Enter VR"
 [node name="Level" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.011022806, 0)
 material_override = SubResource("StandardMaterial3D_4arys")
 mesh = SubResource("PlaneMesh_noarx")
 
@@ -138,7 +139,6 @@ shape = SubResource("BoxShape3D_noarx")
 
 [node name="Wall" type="StaticBody3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -10)
-visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Wall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -151,7 +151,6 @@ shape = SubResource("BoxShape3D_a0tk4")
 
 [node name="Wall2" type="StaticBody3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 10)
-visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Wall2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -164,7 +163,6 @@ shape = SubResource("BoxShape3D_a0tk4")
 
 [node name="Wall3" type="StaticBody3D" parent="Level"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10, 3.5, 0)
-visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Wall3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -177,7 +175,6 @@ shape = SubResource("BoxShape3D_a0tk4")
 
 [node name="Wall4" type="StaticBody3D" parent="Level"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10, 3.5, 0)
-visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Wall4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -204,7 +201,6 @@ font_size = 128
 
 [node name="Roof" type="StaticBody3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
-visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Roof"]
 material_override = SubResource("StandardMaterial3D_jsnrv")
@@ -372,7 +368,7 @@ pixel_size = 0.003
 text = "Educational prototype. Not for clinical use."
 
 [node name="QuantitativeSummaryAnchor" type="Node3D" parent="MedicalWorkspace"]
-transform = Transform3D(-8.742278e-08, 0.517638, 1.9318516, 0, 1.9318515, -0.5176381, -2, -2.2626677e-08, -8.444392e-08, -7, 3.5, 0)
+transform = Transform3D(-1.7320508, -0.34202012, 0.93969274, 0, 1.8793851, 0.68404025, -1.0000001, 0.59239614, -1.6275953, -4.5, 0.8, 3.5)
 
 [node name="QuantitativeSummaryPanel" type="Node3D" parent="MedicalWorkspace/QuantitativeSummaryAnchor"]
 
@@ -381,19 +377,36 @@ material_override = SubResource("StandardMaterial3D_vxd74")
 mesh = SubResource("BoxMesh_imku0")
 
 [node name="TitleLabel" type="Label3D" parent="MedicalWorkspace/QuantitativeSummaryAnchor/QuantitativeSummaryPanel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0.04)
-text = "Patient 001"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22, 0.04)
+text = "Quantitative Summary"
+font_size = 20
 
-[node name="SummaryLabel" type="Label3D" parent="MedicalWorkspace/QuantitativeSummaryAnchor/QuantitativeSummaryPanel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.04)
-pixel_size = 0.004
-text = "CT liver case
-Structures: liver, mass, 
-portal vein, abdominal aorta
+[node name="StructureColumnLabel" type="Label3D" parent="MedicalWorkspace/QuantitativeSummaryAnchor/QuantitativeSummaryPanel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, -0.05, 0.04)
+text = "Structure
+Liver
+Mass segment
+Portal vein
+Aorta"
+font_size = 10
 
-Visualization: 
-segmented surface meshes 
-CT slices"
+[node name="VolumeColumnLabel" type="Label3D" parent="MedicalWorkspace/QuantitativeSummaryAnchor/QuantitativeSummaryPanel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0.04)
+text = "Vol [cm3]
+1441.6
+1470.9
+14.6
+5.2"
+font_size = 10
+
+[node name="MeanHuColumnLabel" type="Label3D" parent="MedicalWorkspace/QuantitativeSummaryAnchor/QuantitativeSummaryPanel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, -0.05, 0.04)
+text = "Mean HU
+95.8
+110.9
+182.6
+169.9"
+font_size = 10
 
 [node name="StructureLegendAnchor" type="Node3D" parent="MedicalWorkspace"]
 transform = Transform3D(-2, -4.5253355e-08, -1.6888784e-07, 0, 1.9318515, -0.5176381, 1.7484555e-07, -0.517638, -1.9318516, 0, 3, 4)
