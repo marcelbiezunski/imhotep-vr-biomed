@@ -10,3 +10,5 @@ data/output_models/*
 godot_vr_app/.godot/
 godot_vr_app/.import/
 godot_vr_app/*.translation
+
+.vscode/
