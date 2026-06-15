@@ -249,7 +249,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 3)
 [node name="Patient_001" parent="MedicalWorkspace/PatientAnchor" instance=ExtResource("7_wc5p8")]
 
 [node name="ToolPaletteAnchor" type="Node3D" parent="MedicalWorkspace"]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1, 0, 1.5)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 3, 0, 2)
 
 [node name="ToolPalette" type="Node3D" parent="MedicalWorkspace/ToolPaletteAnchor"]
 script = ExtResource("8_4arys")
@@ -257,55 +257,55 @@ patient_path = NodePath("../../PatientAnchor/Patient_001")
 slice_screen_path = NodePath("../../SliceScreenAnchor")
 
 [node name="LiverButton" parent="MedicalWorkspace/ToolPaletteAnchor/ToolPalette" instance=ExtResource("9_6iypd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 label_text = "Liver On/Off"
 
 [node name="MassButton" parent="MedicalWorkspace/ToolPaletteAnchor/ToolPalette" instance=ExtResource("9_6iypd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1, 0)
 label_text = "Mass On/Off"
 
 [node name="PortalVeinButton" parent="MedicalWorkspace/ToolPaletteAnchor/ToolPalette" instance=ExtResource("9_6iypd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
-label_text = "PortalVeinButton"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 0)
+label_text = "Portal Vein On/Off"
 
 [node name="AortaButton" parent="MedicalWorkspace/ToolPaletteAnchor/ToolPalette" instance=ExtResource("9_6iypd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
-label_text = "AortaButton"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1, 0)
+label_text = "Aorta On/Off"
 
 [node name="OpacityButton" parent="MedicalWorkspace/ToolPaletteAnchor/ToolPalette" instance=ExtResource("9_6iypd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
-label_text = "OpacityButton"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1, 0)
+label_text = "Opacity"
 
 [node name="RotateLeftButton" parent="MedicalWorkspace/ToolPaletteAnchor/ToolPalette" instance=ExtResource("9_6iypd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 label_text = "RotateLeft"
 
 [node name="RotateRightButton" parent="MedicalWorkspace/ToolPaletteAnchor/ToolPalette" instance=ExtResource("9_6iypd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.7, 0)
 label_text = "RotateRight"
 
 [node name="RotateUpButton" parent="MedicalWorkspace/ToolPaletteAnchor/ToolPalette" instance=ExtResource("9_6iypd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.7, 0)
 label_text = "RotateUp"
 
 [node name="RotateDownButton" parent="MedicalWorkspace/ToolPaletteAnchor/ToolPalette" instance=ExtResource("9_6iypd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.7, 0)
 label_text = "RotateDown"
 
 [node name="ResetButton" parent="MedicalWorkspace/ToolPaletteAnchor/ToolPalette" instance=ExtResource("9_6iypd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.7, 0)
 label_text = "RotateReset"
 
 [node name="NextSliceButton" parent="MedicalWorkspace/ToolPaletteAnchor/ToolPalette" instance=ExtResource("9_6iypd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2, 0)
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, -3.25, 1.6, 0)
 label_text = "Next CT view"
 
 [node name="PreviousSliceButton" parent="MedicalWorkspace/ToolPaletteAnchor/ToolPalette" instance=ExtResource("9_6iypd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.8, 0)
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, -3.25, 1.4, 0)
 label_text = "Previous CT view"
 
 [node name="OverlayButton" parent="MedicalWorkspace/ToolPaletteAnchor/ToolPalette" instance=ExtResource("9_6iypd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.6, 0)
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, -3.25, 1.2, 0)
 label_text = "Overlay On/Off"
 
 [node name="SliceScreenAnchor" type="Node3D" parent="MedicalWorkspace"]
@@ -358,6 +358,7 @@ pixel_size = 0.003
 text = "Educational prototype. Not for clinical use."
 
 [node name="DebugCamera" type="Camera3D" parent="."]
-transform = Transform3D(-0.962218, 0.118076794, -0.24534544, 0, 0.90107703, 0.4336591, 0.27228022, 0.4172746, -0.8670325, 0, 2, 0)
+transform = Transform3D(-0.9622179, 0.118076794, -0.24534544, 0, 0.90107703, 0.4336591, 0.2722802, 0.4172746, -0.8670325, 0, 2, -3)
+current = true
 
 [connection signal="button_released" from="Player/XROrigin3D/RightController" to="Player/XROrigin3D/RightController" method="_on_right_controller_button_released"]

@@ -23,93 +23,93 @@ extends Node3D
 
 
 func _ready() -> void:
-    liver_button.pressed.connect(_on_liver_button_pressed)
-    mass_button.pressed.connect(_on_mass_button_pressed)
-    portal_vein_button.pressed.connect(_on_portal_vein_button_pressed)
-    aorta_button.pressed.connect(_on_aorta_button_pressed)
-    opacity_button.pressed.connect(_on_opacity_button_pressed)
-    rotate_left_button.pressed.connect(_on_rotate_left_button_pressed)
-    rotate_right_button.pressed.connect(_on_rotate_right_button_pressed)
-    rotate_up_button.pressed.connect(_on_rotate_up_button_pressed)
-    rotate_down_button.pressed.connect(_on_rotate_down_button_pressed)
-    reset_button.pressed.connect(_on_reset_button_pressed)
-    next_slice_button.pressed.connect(_on_next_slice_button_pressed)
-    previous_slice_button.pressed.connect(_on_previous_slice_button_pressed)
-    overlay_button.pressed.connect(_on_overlay_button_pressed)
+	liver_button.pressed.connect(_on_liver_button_pressed)
+	mass_button.pressed.connect(_on_mass_button_pressed)
+	portal_vein_button.pressed.connect(_on_portal_vein_button_pressed)
+	aorta_button.pressed.connect(_on_aorta_button_pressed)
+	opacity_button.pressed.connect(_on_opacity_button_pressed)
+	rotate_left_button.pressed.connect(_on_rotate_left_button_pressed)
+	rotate_right_button.pressed.connect(_on_rotate_right_button_pressed)
+	rotate_up_button.pressed.connect(_on_rotate_up_button_pressed)
+	rotate_down_button.pressed.connect(_on_rotate_down_button_pressed)
+	reset_button.pressed.connect(_on_reset_button_pressed)
+	next_slice_button.pressed.connect(_on_next_slice_button_pressed)
+	previous_slice_button.pressed.connect(_on_previous_slice_button_pressed)
+	overlay_button.pressed.connect(_on_overlay_button_pressed)
 
 
 func _on_liver_button_pressed() -> void:
-    patient.toggle_liver()
+	patient.toggle_liver()
 
 
 func _on_mass_button_pressed() -> void:
-    patient.toggle_mass()
+	patient.toggle_mass()
 
 
 func _on_portal_vein_button_pressed() -> void:
-    patient.toggle_portal_vein()
+	patient.toggle_portal_vein()
 
 
 func _on_aorta_button_pressed() -> void:
-    patient.toggle_abdominal_aorta()
+	patient.toggle_abdominal_aorta()
 
 
 func _on_opacity_button_pressed() -> void:
-    patient.cycle_liver_opacity()
+	patient.cycle_liver_opacity()
 
 
 func _on_rotate_left_button_pressed() -> void:
-    patient.rotate_left()
+	patient.rotate_left()
 
 
 func _on_rotate_right_button_pressed() -> void:
-    patient.rotate_right()
-    
-    
+	patient.rotate_right()
+	
+	
 func _on_rotate_up_button_pressed() -> void:
-    patient.rotate_up()
+	patient.rotate_up()
 
 
 func _on_rotate_down_button_pressed() -> void:
-    patient.rotate_down()
+	patient.rotate_down()
 
 
 func _on_reset_button_pressed() -> void:
-    patient.reset_view()
-    
-    
+	patient.reset_view()
+	
+	
 func _on_next_slice_button_pressed() -> void:
-    slice_screen.next_view()
+	slice_screen.next_view()
 
 
 func _on_previous_slice_button_pressed() -> void:
-    slice_screen.previous_view()
+	slice_screen.previous_view()
 
 
 func _on_overlay_button_pressed() -> void:
-    slice_screen.toggle_overlay()
+	slice_screen.toggle_overlay()
 
 
 func _unhandled_input(event: InputEvent) -> void:
-    if event is InputEventKey and event.pressed:
-        match event.keycode:
-            KEY_L:
-                liver_button.press()
-            KEY_M:
-                mass_button.press()
-            KEY_V:
-                portal_vein_button.press()
-            KEY_A:
-                aorta_button.press()
-            KEY_O:
-                opacity_button.press()
-            KEY_Z:
-                rotate_left_button.press()
-            KEY_X:
-                rotate_right_button.press()
-            KEY_U:
-                rotate_up_button.press()
-            KEY_J:
-                rotate_down_button.press()
-            KEY_T:
-                reset_button.press()
+	if event is InputEventKey and event.pressed:
+		match event.keycode:
+			KEY_L:
+				liver_button.press()
+			KEY_M:
+				mass_button.press()
+			KEY_V:
+				portal_vein_button.press()
+			KEY_A:
+				aorta_button.press()
+			KEY_O:
+				opacity_button.press()
+			KEY_Z:
+				rotate_left_button.press()
+			KEY_X:
+				rotate_right_button.press()
+			KEY_U:
+				rotate_up_button.press()
+			KEY_J:
+				rotate_down_button.press()
+			KEY_T:
+				reset_button.press()

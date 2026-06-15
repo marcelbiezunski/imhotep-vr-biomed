@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://cnmq5kkfcf0fc" path="res://button_3d.gd" id="1_r2n1e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vqbxo"]
-size = Vector3(0.55, 0.12, 0.05)
+size = Vector3(1.4, 0.12, 0.05)
 
 [sub_resource type="BoxMesh" id="BoxMesh_7001x"]
-size = Vector3(0.55, 0.12, 0.03)
+size = Vector3(1.4, 0.12, 0.03)
 
 [node name="Button3D" type="Area3D"]
 script = ExtResource("1_r2n1e")
