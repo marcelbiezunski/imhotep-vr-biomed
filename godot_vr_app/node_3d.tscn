@@ -62,14 +62,14 @@ height = 1.6
 albedo_color = Color(0.38170326, 0.38170323, 0.38170323, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_noarx"]
-radius = 0.1
-height = 0.2
+radius = 0.08
+height = 0.16
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wlxy5"]
 albedo_color = Color(0.38039216, 0.38039216, 0.38039216, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_a0tk4"]
-size = Vector3(0.2, 0.2, 0.2)
+size = Vector3(0.1, 0.1, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wc5p8"]
 albedo_color = Color(0.16048115, 0.2714348, 0.9870052, 1)
@@ -464,6 +464,5 @@ font_size = 12
 
 [node name="DebugCamera" type="Camera3D" parent="."]
 transform = Transform3D(-0.86339545, 0, -0.50452757, 0, 1, 0, 0.5045275, 0, -0.8633956, 0, 2, -2)
-current = true
 
 [connection signal="button_released" from="Player/XROrigin3D/RightController" to="Player/XROrigin3D/RightController" method="_on_right_controller_button_released"]
