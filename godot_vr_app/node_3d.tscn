@@ -169,7 +169,6 @@ font_size = 128
 
 [node name="Roof" type="StaticBody3D" parent="Level"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
-visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Roof"]
 material_override = SubResource("StandardMaterial3D_jsnrv")
