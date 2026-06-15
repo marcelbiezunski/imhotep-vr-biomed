@@ -3,8 +3,6 @@
 [ext_resource type="Script" uid="uid://dc1lu38185dod" path="res://node_3d.gd" id="1_61lph"]
 [ext_resource type="Script" uid="uid://78gjb1wfvmat" path="res://Player.gd" id="2_r3fl7"]
 [ext_resource type="Script" uid="uid://dcmakcalqcv6a" path="res://teleport.gd" id="3_a0tk4"]
-[ext_resource type="PackedScene" uid="uid://buqa2sxg7pvoi" path="res://assets/models/futuristic_laser_gun.glb" id="5_jka67"]
-[ext_resource type="PackedScene" uid="uid://badmtg5gm1ecu" path="res://assets/models/robotic_hand.glb" id="5_jsk3o"]
 [ext_resource type="PackedScene" uid="uid://bmyxyt3qi5sto" path="res://patient_001.tscn" id="7_wc5p8"]
 [ext_resource type="Script" uid="uid://br0uv14rk5h6t" path="res://tool_palette.gd" id="8_4arys"]
 [ext_resource type="PackedScene" uid="uid://c8ne202fstl5c" path="res://button_3d.tscn" id="9_6iypd"]
@@ -60,9 +58,18 @@ background_color = Color(0.8627451, 0.8980392, 0.93333334, 1)
 radius = 0.25
 height = 1.6
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_imku0"]
+albedo_color = Color(0.38170326, 0.38170323, 0.38170323, 1)
+
 [sub_resource type="SphereMesh" id="SphereMesh_noarx"]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wlxy5"]
+albedo_color = Color(0.38039216, 0.38039216, 0.38039216, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_a0tk4"]
+size = Vector3(0.2, 0.2, 0.2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wc5p8"]
 albedo_color = Color(0.16048115, 0.2714348, 0.9870052, 1)
@@ -197,11 +204,8 @@ tracker = &"left_hand"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player/XROrigin3D/LeftController"]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
-visible = false
+material_override = SubResource("StandardMaterial3D_imku0")
 mesh = SubResource("SphereMesh_noarx")
-
-[node name="Sketchfab_Scene2" parent="Player/XROrigin3D/LeftController" instance=ExtResource("5_jsk3o")]
-transform = Transform3D(-1.7484555e-09, 0.04, 0, -0.010352762, -4.5253365e-10, 0.03863703, 0.03863703, 1.6888784e-09, 0.010352762, 0.13, 0.06, 0)
 
 [node name="RightController" type="XRController3D" parent="Player/XROrigin3D"]
 tracker = &"right_hand"
@@ -209,11 +213,8 @@ script = ExtResource("3_a0tk4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player/XROrigin3D/RightController"]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
-visible = false
+material_override = SubResource("StandardMaterial3D_wlxy5")
 mesh = SubResource("BoxMesh_a0tk4")
-
-[node name="Sketchfab_Scene2" parent="Player/XROrigin3D/RightController" instance=ExtResource("5_jka67")]
-transform = Transform3D(-0.19696155, 0.034729637, -1.7484556e-08, 0.034729637, 0.19696155, 0, 1.7218925e-08, -3.0361613e-09, -0.2, 0, 0.04, 0)
 
 [node name="TeleportRay" type="RayCast3D" parent="Player/XROrigin3D/RightController"]
 target_position = Vector3(0, 0, -10)
@@ -342,7 +343,7 @@ pixel_size = 0.003
 text = "Educational prototype. Not for clinical use."
 
 [node name="DebugCamera" type="Camera3D" parent="."]
-transform = Transform3D(-0.99572456, 0, -0.092370644, 0, 1, 0, 0.09237064, 0, -0.9957247, 0, 2, -3)
-current = true
+transform = Transform3D(-0.86339545, 0, -0.50452757, 0, 1, 0, 0.5045275, 0, -0.8633956, 0, 2, -2)
+visible = false
 
 [connection signal="button_released" from="Player/XROrigin3D/RightController" to="Player/XROrigin3D/RightController" method="_on_right_controller_button_released"]
