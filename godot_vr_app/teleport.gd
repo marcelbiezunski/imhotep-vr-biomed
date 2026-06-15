@@ -17,13 +17,10 @@ func _process(_delta: float) -> void:
         marker.visible = false
         return
 
-    var collider := ray.get_collider()
+    var hit_point := ray.get_collision_point()
+    var hit_normal := ray.get_collision_normal()
 
-    if collider != null and collider.has_method("press"):
-        marker.visible = false
-        return
-
-    marker.global_position = ray.get_collision_point()
+    marker.global_position = hit_point + hit_normal * 0.01
     marker.visible = true
 
 
