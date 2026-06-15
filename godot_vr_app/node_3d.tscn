@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://lwjpy1mxgdla"]
+[gd_scene load_steps=28 format=3 uid="uid://lwjpy1mxgdla"]
 
 [ext_resource type="Script" uid="uid://dc1lu38185dod" path="res://node_3d.gd" id="1_61lph"]
 [ext_resource type="PackedScene" uid="uid://b8sqplh0apc1y" path="res://assets/models/rigged_hand.glb" id="2_noarx"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bmyxyt3qi5sto" path="res://patient_001.tscn" id="7_wc5p8"]
 [ext_resource type="Script" uid="uid://br0uv14rk5h6t" path="res://tool_palette.gd" id="8_4arys"]
 [ext_resource type="PackedScene" uid="uid://c8ne202fstl5c" path="res://button_3d.tscn" id="9_6iypd"]
+[ext_resource type="Texture2D" uid="uid://ba78a0jdtukh7" path="res://assets/patient1/axial_mass.png" id="10_6iypd"]
 
 [sub_resource type="Gradient" id="Gradient_wc5p8"]
 
@@ -56,6 +57,13 @@ albedo_color = Color(0.16048115, 0.2714348, 0.9870052, 1)
 [sub_resource type="SphereMesh" id="SphereMesh_wc5p8"]
 radius = 0.05
 height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tereu"]
+shading_mode = 0
+albedo_texture = ExtResource("10_6iypd")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cdqbm"]
+size = Vector2(3, 2)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_61lph")
@@ -226,11 +234,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 label_text = "RotateReset"
 
 [node name="SliceScreenAnchor" type="Node3D" parent="MedicalWorkspace"]
+transform = Transform3D(-0.50000006, -0.8660254, 3.7855173e-08, 0, -4.371139e-08, -1, 0.8660254, -0.50000006, 2.1855696e-08, 5, 2, 4)
 
-[node name="SliceScreen" type="Node3D" parent="MedicalWorkspace/SliceScreenAnchor"]
+[node name="SliceScreen" type="MeshInstance3D" parent="MedicalWorkspace/SliceScreenAnchor"]
+material_override = SubResource("StandardMaterial3D_tereu")
+mesh = SubResource("PlaneMesh_cdqbm")
+
+[node name="SliceTitle" type="Label3D" parent="MedicalWorkspace/SliceScreenAnchor"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 1.2)
+text = "Axial CT Slice"
 
 [node name="DebugCamera" type="Camera3D" parent="."]
-transform = Transform3D(-0.82214403, -0.3551619, 0.44490364, 0, 0.7815205, 0.6238796, -0.56927955, 0.5129189, -0.6425224, 1, 2, 2)
+transform = Transform3D(-0.7535634, 0.410123, -0.5137522, 0, 0.7815205, 0.6238796, 0.6573752, 0.47013286, -0.58892524, 1, 2, 2)
 current = true
 
 [connection signal="button_released" from="Player/XROrigin3D/RightController" to="Player/XROrigin3D/RightController" method="_on_right_controller_button_released"]
