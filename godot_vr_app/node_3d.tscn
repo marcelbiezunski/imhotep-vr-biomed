@@ -204,6 +204,7 @@ script = ExtResource("2_r3fl7")
 shape = SubResource("CapsuleShape3D_jka67")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="Player"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="XRCamera3D" type="XRCamera3D" parent="Player/XROrigin3D"]
 transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
