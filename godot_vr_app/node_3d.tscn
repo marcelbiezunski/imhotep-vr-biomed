@@ -1,7 +1,7 @@
-[gd_scene load_steps=35 format=3 uid="uid://lwjpy1mxgdla"]
+[gd_scene load_steps=41 format=3 uid="uid://lwjpy1mxgdla"]
 
 [ext_resource type="Script" uid="uid://dc1lu38185dod" path="res://node_3d.gd" id="1_61lph"]
-[ext_resource type="PackedScene" uid="uid://b8sqplh0apc1y" path="res://assets/models/rigged_hand.glb" id="2_noarx"]
+[ext_resource type="PackedScene" path="res://assets/models/rigged_hand.glb" id="2_noarx"]
 [ext_resource type="Script" uid="uid://78gjb1wfvmat" path="res://Player.gd" id="2_r3fl7"]
 [ext_resource type="Script" uid="uid://dcmakcalqcv6a" path="res://teleport.gd" id="3_a0tk4"]
 [ext_resource type="PackedScene" uid="uid://buqa2sxg7pvoi" path="res://assets/models/futuristic_laser_gun.glb" id="5_jka67"]
@@ -17,14 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://vawyx2uqtfnw" path="res://assets/patient1/sagittal_mass_nocolor.png" id="15_ealrb"]
 [ext_resource type="Texture2D" uid="uid://bd6n2374at16u" path="res://assets/patient1/sagittal_mass.png" id="16_jsnrv"]
 
-[sub_resource type="Gradient" id="Gradient_wc5p8"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_jsk3o"]
-gradient = SubResource("Gradient_wc5p8")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4arys"]
-albedo_color = Color(0.87866265, 0.5195613, 0.39006835, 1)
-albedo_texture = SubResource("GradientTexture2D_jsk3o")
+albedo_color = Color(0.62352943, 0.7019608, 0.78431374, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_noarx"]
 size = Vector2(20, 20)
@@ -34,20 +28,41 @@ size = Vector3(20, 0.1, 20)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_noarx"]
 top_radius = 0.1
-height = 10.0
+height = 5.0
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_a0tk4"]
-height = 10.0
+height = 5.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tcnuu"]
+albedo_color = Color(0.92156863, 0.9411765, 0.9607843, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_noarx"]
-size = Vector3(2, 3, 2)
+size = Vector3(20, 8, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_a0tk4"]
-size = Vector3(2, 3, 2)
+size = Vector3(20, 8, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tuemg"]
+albedo_color = Color(0.92156863, 0.9411765, 0.9607843, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i0g27"]
+albedo_color = Color(0.92156863, 0.9411765, 0.9607843, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ealrb"]
+albedo_color = Color(0.92156863, 0.9411765, 0.9607843, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jsnrv"]
+albedo_color = Color(0.9607843, 0.96862745, 0.98039216, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lggff"]
+size = Vector3(20, 0.01, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s0gvp"]
+size = Vector3(20, 0.1, 20)
 
 [sub_resource type="Environment" id="Environment_a0tk4"]
 background_mode = 1
-background_color = Color(0.57759964, 0.8262938, 0.5061657, 1)
+background_color = Color(0.8627451, 0.8980392, 0.93333334, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jka67"]
 radius = 0.25
@@ -70,6 +85,9 @@ albedo_texture = ExtResource("10_6iypd")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_cdqbm"]
 size = Vector2(3, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxd74"]
+albedo_color = Color(0.2592937, 0.2592937, 0.2592937, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_tcnuu"]
 size = Vector3(2, 2, 0.03)
@@ -96,7 +114,7 @@ mesh = SubResource("PlaneMesh_noarx")
 shape = SubResource("BoxShape3D_noarx")
 
 [node name="Wierza orientacyjna" type="StaticBody3D" parent="Level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 5, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.5, -4)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Wierza orientacyjna"]
 mesh = SubResource("CylinderMesh_noarx")
@@ -104,43 +122,78 @@ mesh = SubResource("CylinderMesh_noarx")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Wierza orientacyjna"]
 shape = SubResource("CylinderShape3D_a0tk4")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="Level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -5)
+[node name="Wall" type="StaticBody3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -10)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/StaticBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+material_override = SubResource("StandardMaterial3D_tcnuu")
 mesh = SubResource("BoxMesh_noarx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/StaticBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Wall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_a0tk4")
 
-[node name="StaticBody3Dlaptop" type="StaticBody3D" parent="Level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 7)
+[node name="Wall2" type="StaticBody3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 10)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/StaticBody3Dlaptop"]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0.7, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+material_override = SubResource("StandardMaterial3D_tuemg")
 mesh = SubResource("BoxMesh_noarx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/StaticBody3Dlaptop"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Wall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_a0tk4")
+
+[node name="Wall3" type="StaticBody3D" parent="Level"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10, 3.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+material_override = SubResource("StandardMaterial3D_i0g27")
+mesh = SubResource("BoxMesh_noarx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Wall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_a0tk4")
+
+[node name="Wall4" type="StaticBody3D" parent="Level"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -10, 3.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+material_override = SubResource("StandardMaterial3D_ealrb")
+mesh = SubResource("BoxMesh_noarx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Wall4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_a0tk4")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Level"]
-transform = Transform3D(0.66253453, -0.4719046, 0.58168215, 0.35462287, 0.8816496, 0.31134644, -0.65976566, 4.506401e-08, 0.75147146, 3.593394, 8.149786, 8.149802)
-light_color = Color(0.79814124, 0.0329223, 0.60632116, 1)
-light_energy = 1.5
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 7.5, 0)
+light_color = Color(0.9607843, 0.9764706, 1, 1)
+light_energy = 0.4
 
 [node name="SkyText" type="Label3D" parent="Level"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 25)
+transform = Transform3D(-0.3, -8.970105e-09, -2.4645162e-08, 0, 0.2819078, -0.10260604, 2.6226834e-08, -0.10260604, -0.2819078, 0, 6, 9)
 pixel_size = 0.01
-billboard = 1
-modulate = Color(1, 0, 1, 1)
-text = "Teleportacja - prawy trigger
-Poruszanie - lewa gałka
-Obrót 45 stopni - prawa gałka
-Powrót na spawn - lewy trigger"
+modulate = Color(0.25495163, 0.50172913, 0.91804487, 1)
+text = "Teleportation - right trigger
+Movement - left joystick
+Snap turn (45°) - right joystick
+Return to spawn - left trigger"
 font_size = 128
+
+[node name="Roof" type="StaticBody3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Roof"]
+material_override = SubResource("StandardMaterial3D_jsnrv")
+mesh = SubResource("BoxMesh_lggff")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Roof"]
+shape = SubResource("BoxShape3D_s0gvp")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_a0tk4")
@@ -281,6 +334,7 @@ transform = Transform3D(-0.81915206, 0, 0.57357645, 0, 1, 0, -0.57357645, 0, -0.
 [node name="InfoPanel" type="Node3D" parent="MedicalWorkspace/InfoPanelAnchor"]
 
 [node name="PanelBlack" type="MeshInstance3D" parent="MedicalWorkspace/InfoPanelAnchor/InfoPanel"]
+material_override = SubResource("StandardMaterial3D_vxd74")
 mesh = SubResource("BoxMesh_tcnuu")
 
 [node name="TitleLabel" type="Label3D" parent="MedicalWorkspace/InfoPanelAnchor/InfoPanel"]
