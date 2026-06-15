@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://lwjpy1mxgdla"]
+[gd_scene load_steps=46 format=3 uid="uid://lwjpy1mxgdla"]
 
 [ext_resource type="Script" uid="uid://dc1lu38185dod" path="res://node_3d.gd" id="1_61lph"]
 [ext_resource type="Script" uid="uid://78gjb1wfvmat" path="res://Player.gd" id="2_r3fl7"]
@@ -62,14 +62,14 @@ height = 1.6
 albedo_color = Color(0.38170326, 0.38170323, 0.38170323, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_noarx"]
-radius = 0.1
-height = 0.2
+radius = 0.08
+height = 0.16
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wlxy5"]
 albedo_color = Color(0.38039216, 0.38039216, 0.38039216, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_a0tk4"]
-size = Vector3(0.2, 0.2, 0.2)
+size = Vector3(0.1, 0.1, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wc5p8"]
 albedo_color = Color(0.16048115, 0.2714348, 0.9870052, 1)
@@ -86,10 +86,34 @@ albedo_texture = ExtResource("10_6iypd")
 size = Vector2(3, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxd74"]
-albedo_color = Color(0.03839717, 0.03839716, 0.038397186, 1)
+albedo_color = Color(0.039215688, 0.039215688, 0.039215688, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_tcnuu"]
 size = Vector3(2, 2, 0.03)
+
+[sub_resource type="BoxMesh" id="BoxMesh_imku0"]
+size = Vector3(1.25, 0.6, 0.02)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wlxy5"]
+size = Vector3(0.85, 0.5, 0.02)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3v7ru"]
+albedo_color = Color(1, 0.039215688, 0.039215688, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tuemg"]
+size = Vector3(0.045, 0.045, 0.01)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lggff"]
+albedo_color = Color(0.039215688, 1, 0.039215688, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s0gvp"]
+size = Vector3(0.045, 0.045, 0.01)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dhlwf"]
+albedo_color = Color(1, 1, 0.039215688, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5t8nk"]
+albedo_color = Color(0.039215688, 1, 1, 1)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_61lph")
@@ -104,6 +128,7 @@ text = "Enter VR"
 [node name="Level" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.011022806, 0)
 material_override = SubResource("StandardMaterial3D_4arys")
 mesh = SubResource("PlaneMesh_noarx")
 
@@ -342,8 +367,102 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8, 0.04)
 pixel_size = 0.003
 text = "Educational prototype. Not for clinical use."
 
+[node name="QuantitativeSummaryAnchor" type="Node3D" parent="MedicalWorkspace"]
+transform = Transform3D(-1.7320508, -0.34202012, 0.93969274, 0, 1.8793851, 0.68404025, -1.0000001, 0.59239614, -1.6275953, -4.5, 0.8, 3.5)
+
+[node name="QuantitativeSummaryPanel" type="Node3D" parent="MedicalWorkspace/QuantitativeSummaryAnchor"]
+
+[node name="PanelBlack" type="MeshInstance3D" parent="MedicalWorkspace/QuantitativeSummaryAnchor/QuantitativeSummaryPanel"]
+material_override = SubResource("StandardMaterial3D_vxd74")
+mesh = SubResource("BoxMesh_imku0")
+
+[node name="TitleLabel" type="Label3D" parent="MedicalWorkspace/QuantitativeSummaryAnchor/QuantitativeSummaryPanel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22, 0.04)
+text = "Quantitative Summary"
+font_size = 20
+
+[node name="StructureColumnLabel" type="Label3D" parent="MedicalWorkspace/QuantitativeSummaryAnchor/QuantitativeSummaryPanel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, -0.05, 0.04)
+text = "Structure
+Liver
+Mass segment
+Portal vein
+Aorta"
+font_size = 10
+
+[node name="VolumeColumnLabel" type="Label3D" parent="MedicalWorkspace/QuantitativeSummaryAnchor/QuantitativeSummaryPanel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0.04)
+text = "Vol [cm3]
+1441.6
+1470.9
+14.6
+5.2"
+font_size = 10
+
+[node name="MeanHuColumnLabel" type="Label3D" parent="MedicalWorkspace/QuantitativeSummaryAnchor/QuantitativeSummaryPanel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35, -0.05, 0.04)
+text = "Mean HU
+95.8
+110.9
+182.6
+169.9"
+font_size = 10
+
+[node name="StructureLegendAnchor" type="Node3D" parent="MedicalWorkspace"]
+transform = Transform3D(-2, -4.5253355e-08, -1.6888784e-07, 0, 1.9318515, -0.5176381, 1.7484555e-07, -0.517638, -1.9318516, 0, 3, 4)
+
+[node name="StructureLegendPanel" type="Node3D" parent="MedicalWorkspace/StructureLegendAnchor"]
+
+[node name="PanelBlack" type="MeshInstance3D" parent="MedicalWorkspace/StructureLegendAnchor/StructureLegendPanel"]
+material_override = SubResource("StandardMaterial3D_vxd74")
+mesh = SubResource("BoxMesh_wlxy5")
+
+[node name="LiverColorBox" type="MeshInstance3D" parent="MedicalWorkspace/StructureLegendAnchor/StructureLegendPanel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, 0.06, 0.02)
+material_override = SubResource("StandardMaterial3D_3v7ru")
+mesh = SubResource("BoxMesh_tuemg")
+
+[node name="MassColorBox" type="MeshInstance3D" parent="MedicalWorkspace/StructureLegendAnchor/StructureLegendPanel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, -0.02, 0.02)
+material_override = SubResource("StandardMaterial3D_lggff")
+mesh = SubResource("BoxMesh_s0gvp")
+
+[node name="PortalVeinBox" type="MeshInstance3D" parent="MedicalWorkspace/StructureLegendAnchor/StructureLegendPanel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, -0.1, 0.02)
+material_override = SubResource("StandardMaterial3D_dhlwf")
+mesh = SubResource("BoxMesh_s0gvp")
+
+[node name="AortaBox" type="MeshInstance3D" parent="MedicalWorkspace/StructureLegendAnchor/StructureLegendPanel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35, -0.18, 0.02)
+material_override = SubResource("StandardMaterial3D_5t8nk")
+mesh = SubResource("BoxMesh_s0gvp")
+
+[node name="TitleLabel" type="Label3D" parent="MedicalWorkspace/StructureLegendAnchor/StructureLegendPanel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17, 0.02)
+text = "Structures"
+font_size = 20
+
+[node name="LiverLabel" type="Label3D" parent="MedicalWorkspace/StructureLegendAnchor/StructureLegendPanel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.06, 0.02)
+text = "Liver"
+font_size = 12
+
+[node name="MassLabel" type="Label3D" parent="MedicalWorkspace/StructureLegendAnchor/StructureLegendPanel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06, -0.02, 0.02)
+text = "Mass segment"
+font_size = 12
+
+[node name="PortalVeinLabel" type="Label3D" parent="MedicalWorkspace/StructureLegendAnchor/StructureLegendPanel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11, -0.1, 0.02)
+text = "Portal vein"
+font_size = 12
+
+[node name="AbdominalLabel" type="Label3D" parent="MedicalWorkspace/StructureLegendAnchor/StructureLegendPanel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.03, -0.18, 0.02)
+text = "Abdominal aorta"
+font_size = 12
+
 [node name="DebugCamera" type="Camera3D" parent="."]
 transform = Transform3D(-0.86339545, 0, -0.50452757, 0, 1, 0, 0.5045275, 0, -0.8633956, 0, 2, -2)
-visible = false
 
 [connection signal="button_released" from="Player/XROrigin3D/RightController" to="Player/XROrigin3D/RightController" method="_on_right_controller_button_released"]
